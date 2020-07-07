@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <title>Recieve these generous donations0</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+
+
+	<!-- Font -->
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+	<!-- Stylesheets -->
+
+	<link href="{% static 'common-css/bootstrap.css' %}" rel="stylesheet">
+
+	<link href="{% static 'common-css/ionicons.css' %}" rel="stylesheet">
+
+
+	<link href="{% static 'layout-1/css/styles.css' %}" rel="stylesheet">
+
+	<link href="{% static 'layout-1/css/responsive.css' %}" rel="stylesheet">
+
+	<script>
+		function recieve(id){
+			//alert(id);
+			document.getElementById(id).value = "Booked"
+			document.getElementById(id).disabled = true;
+		}
+	</script>
+
+</head>
+<body>
+
+	<header style="background-color: #5cb85c;">
+		<div class="container-fluid position-relative no-side-padding">
+
+            <p class="logo" style="font-family: Roboto; font-weight: bolder; font-size: 30px; margin-top: 5px;">FoodZilla</p>
+
+			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
+
+			<ul class="main-menu visible-on-click" id="main-menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="stats.html">Food Stats</a></li>
+				<li><a href="upload.html">Donate Food</a></li>
+				<li><a href="org.html">Recieve Food</a></li>
+				<li><a href="feed.html">Snapshot of Weekly Inventory</a></li>
+			</ul><!-- main-menu -->
+
+		</div><!-- conatiner -->
+    </header>
+
+    <section class="blog-area section">
+		<h3 class="title" style="text-align: center;">{{food_pickup_info}}</h3>
+		{% if not food_list and not food_pickup_info %}
+		<h3 class="title" style="text-align: center;">No food available at this time.</h3>
+		{% elif food_list %}
+		<div class="container">
+
+			<div class="row">
+				{% for food in food_list %}
+				<div class="col-lg-4 col-md-6">
+					<div class="card h-100" >
+						<div class="single-post post-style-4" style="border-radius: 10px; border: 2px solid; border-color: #5cb85c">
+
+							<div class="display-table" >
+								<h3 class="title"><a href="#"><b>{{food.name}}</b></a></h4>
+									<p class="para">{{food.amount}} of {{food.name}}, they expire on {{food.expiration}}</p>
+							</div>
+							<ul class="post-footer">
+								<li><input type="submit" id= {{ food.id }} name= {{ food.id }} onclick="recieve( name )" value="Pick Up" style="
+									border: none;
+				  color: black;
+				  padding: 10px 40px;
+				  cursor: pointer; background-color: #5cb85c; border-top-left-radius: 10px;"/></li>
+							</ul>
+						</div><!-- single-post -->
+
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+				{% endfor %}
+			</div><!-- row -->
+		</div><!-- container -->
+
+
+
+			{% endif %}
+	</section><!-- section -->
+
+    <footer style="background-color: #5cb85c;">
+
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-4 col-md-6">
+					<div class="footer-section">
+
+            <p class="logo" style="font-family: Roboto; font-weight: bolder; font-size: 30px; margin-top: 5px;">FoodZilla</p>
+						<p class="copyright">by NobodyKeras</p>
+
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+				<div class="col-lg-4 col-md-6">
+						<div class="footer-section">
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+			</div><!-- row -->
+		</div><!-- container -->
+	</footer>
+
+
+
+	<!-- SCIPTS -->
+
+	<script src="{% static 'common-js/jquery-3.1.1.min.js' %}"></script>
+
+	<script src="{% static 'common-js/tether.min.js' %}"></script>
+
+	<script src="{% static 'common-js/bootstrap.js' %}"></script>
+
+	<script src="{% static 'common-js/scripts.js' %}"></script>
+
+</body>
+</html>

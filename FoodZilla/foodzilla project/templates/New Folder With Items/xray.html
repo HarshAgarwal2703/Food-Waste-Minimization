@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+{%load static %}
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>X-Ray Analysis</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
+
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="{% static 'images/2000px-Logo_Bayer.svg.png'%}" alt="" /></span><span class="title">Global</span>
+								</a>
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="https://www.bayer.com/en/bayer-group.aspx">About Us</a></li>
+							<li><a href="https://www.bayer.com/en/media.aspx">Media</a></li>
+							<li><a href="https://www.investor.bayer.de/en/overview/">Investors</a></li>
+							<li><a href="https://www.career.bayer.com/en/career/">Careers</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1>X-Ray Image Analysis</h1>
+							<span class="image main"><img src="{% static 'images/hero_products_rack_in_a_pharmacy.jpg' %}" alt="" /></span>
+							<p>Here, we can analyze x-rays of your lungs in order to identify treatment
+							and Bayer products best suited to help you based on the contingency. Upload an image,
+							and we utilize a neural network model to make inferences on the scan and diagnose any
+							problems. From there, we can recommend solutions that we can provide to help!</p>
+						</div>
+						<form method = "post" enctype = "multipart/form-data">
+							{%csrf_token%}
+							<div class = "xrayfile">
+								<input type = "file" name="myfile" />
+								<input type="submit" name="submit" value="Upload" />
+							</div>
+						</form>
+					</div>
+
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js'%}"></script>
+			<script src="{% static 'assets/js/skel.min.js'%}"></script>
+			<script src="{% static 'assets/js/util.js'%}"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js'%}"></script>
+
+	</body>
+</html>
