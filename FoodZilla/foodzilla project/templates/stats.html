@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="en">
+<head>
+	<title>How much food to order?</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+
+
+	<!-- Font -->
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+	<!-- Stylesheets -->
+
+	<link href="{% static 'common-css/bootstrap.css' %}" rel="stylesheet">
+
+	<link href="{% static 'common-css/ionicons.css' %}" rel="stylesheet">
+
+
+	<link href="{% static 'layout-1/css/styles.css' %}" rel="stylesheet">
+
+	<link href="{% static 'layout-1/css/responsive.css' %}" rel="stylesheet">
+
+</head>
+<body >
+
+	<header style="background-color: #5cb85c;">
+		<div class="container-fluid position-relative no-side-padding">
+
+            <p class="logo" style="font-family: Roboto; font-weight: bolder; font-size: 30px; margin-top: 5px;">FoodZilla</p>
+
+			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
+
+			<ul class="main-menu visible-on-click" id="main-menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="#">Food Stats</a></li>
+				<li><a href="upload.html">Donate Food</a></li>
+				<li><a href="org.html">Recieve Food</a></li>
+				<li><a href="feed.html">Snapshot of Weekly Inventory</a></li>
+			</ul><!-- main-menu -->
+
+		</div><!-- conatiner -->
+	</header>
+
+	<section class="blog-area section" style="background-image: url('../../static/images/bg.jpg'); background-repeat: no-repeat; background-attachment: fixed;
+  background-size: cover;">
+		<div>
+			<form method = "post" enctype = "multipart/form-data">
+				{%csrf_token%}
+				<div class="display-table">
+					<input type = "number" name="apple" placeholder="Enter quantity of Apples" style="width: 20%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 5px;" />
+  <br>
+				<input type = "number" name="orange" placeholder="Enter quantity of oranges" style="width: 20%;
+			padding: 16px 20px;
+			border: none;
+			border-radius: 4px;
+			margin-bottom: 5px;" />
+<br>
+				
+					<input type="submit" name="estimateSubmit" value="Upload" style="
+					background-color:darkgray;
+  color: black;
+  padding: 10px 32px;
+  margin: 4px 2px;
+  cursor: pointer;"/>
+				</div>
+			</form>
+		</div>
+	</section><!-- section -->
+	<style>
+	img.two {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 70%;
+	width: 50%;
+	}
+	</style>
+    <div style="align-content: center; text-align: center; margin: 5px auto;">
+    <div style="display: inline-block; align-content: center">
+            <br>
+			<h4 style="text-align: center;"><b>{{estimation}} {{result}}</b></h4>
+			<h4 style=" text-align: center;"><b>{{inventory}}</b></h4>
+			<h4 style=" text-align: center;"><b>{{waste}}</b></h4>
+    </div>
+    <div style="display: inline-block; align-content: center">
+        <br>
+			<h4 style="text-align: center;"><b>{{estimation1}} {{result1}}</b></h4>
+			<h4 style=" text-align: center;"><b>{{inventory1}}</b></h4>
+			<h4 style=" text-align: center;"><b>{{waste1}}</b></h4>
+    </div>
+        </div>
+    <p style="font-size: xx-large; margin-left: 735px;">Apple</p>
+    <br>
+	<img class="two" src="{% static 'images/monthapple.png' %}">
+    <img class="two" src="{% static 'images/wasteapple.png' %}">
+    <img class="two" src="{% static 'images/pred_apple.png' %}">
+    <p style="font-size: xx-large; margin-left: 735px;">Orange</p>
+    <br>
+	<img class="two" src="{% static 'images/monthorange.png' %}">
+    <img class="two" src="{% static 'images/wasteorange.png' %}">
+    <img class="two" src="{% static 'images/pred_orange.png' %}">
+
+
+	<footer style="background-color: #5cb85c;">
+
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-4 col-md-6">
+					<div class="footer-section">
+
+						<p class="logo" style="font-family: Roboto; font-weight: bolder; font-size: 30px; margin-top: 5px;">FoodZilla</p>
+						<p class="copyright">by NobodyKeras</p>
+
+
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+				<div class="col-lg-4 col-md-6">
+						<div class="footer-section">
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+			</div><!-- row -->
+		</div><!-- container -->
+	</footer>
+
+
+
+	<!-- SCIPTS -->
+
+	<script src="{% static 'common-js/jquery-3.1.1.min.js' %}"></script>
+
+	<script src="{% static 'common-js/tether.min.js' %}"></script>
+
+	<script src="{% static 'common-js/bootstrap.js' %}"></script>
+
+	<script src="{% static 'common-js/scripts.js' %}"></script>
+
+</body>
+</html>

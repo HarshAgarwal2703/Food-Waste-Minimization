@@ -1,0 +1,9 @@
+numpy
+cython
+pystan
+fbprophet
+django
+pillow
+opencv-python
+matplotlib
+seaborn
